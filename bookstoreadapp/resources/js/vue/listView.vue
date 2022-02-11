@@ -13,7 +13,7 @@
 <script>
 
 import listItem from "./listItem"
-import listItem from "./listItem.vue"
+//import listItem from "./listItem.vue"
 
 export default {
     props: ['books'],
