@@ -2,9 +2,12 @@
     <div class="bookListContainer">
         <div class="heading">
             <h2 id="title">Books to Read</h2>
-            <add-book-form />
+            <add-book-form 
+                v-on:reloadlist="getList()"
+            />
         </div>    
-        <list-view />
+        <list-view :books="books" 
+        v-on:reloadlist="getList()" />
     </div>
 </template>
 
