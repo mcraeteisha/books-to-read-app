@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Book;
 
 class BookController extends Controller
 {
@@ -13,7 +14,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        return Book::orderBy('created_at', 'DESC')->get();
     }
 
     /**
@@ -34,7 +35,11 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newBook = new Book;
+        $newBook->name = $request->book["name"];
+        $newBook->save();
+
+        return $newBook;
     }
 
     /**
