@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use Illuminate\Support\Carbon;
 
 class BookController extends Controller
 {
@@ -37,6 +38,7 @@ class BookController extends Controller
     {
         $newBook = new Book;
         $newBook->name = $request->book["name"];
+        $newBook->description = $request->book["description"];
         $newBook->save();
 
         return $newBook;
@@ -73,7 +75,16 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $existingBook = Book::find( $id );
+        
+        if( $existingBook ) {
+            $existingBook->inactive = $request->item['inactive'] ? true : false;
+            $existingBook->completed_at = $request->item['inactive'] ? Carbon::now() : null;
+            $existingBook->save();
+            return $existingBook;
+        }
+
+        return "Book not found.";
     }
 
     /**
