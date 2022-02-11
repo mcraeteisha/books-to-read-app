@@ -4,6 +4,8 @@ require('./bootstrap');
 import * as Vue from 'vue'
 import App from './vue/app'
 
+
+
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
 

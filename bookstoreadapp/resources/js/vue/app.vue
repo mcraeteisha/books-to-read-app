@@ -17,6 +17,7 @@ import addBookForm from "./addBookForm"
 import listView from "./listView"
 
 export default {
+    name: 'app',
     components: {
         addBookForm,
         listView
